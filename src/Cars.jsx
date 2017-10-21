@@ -25,7 +25,9 @@ export default class Cars extends React.Component {
 
   enterEditMode(car) {
     this.setState({ carToEdit: car });
-    this.toggleEditMode();
+    if (!this.state.editMode) {
+      this.toggleEditMode();
+    }
   }
 
   // toggle edit mode within the state

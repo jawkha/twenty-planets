@@ -34,7 +34,7 @@ export default class CarForm extends React.Component {
 
   render() {
     return (
-      <div id="car-form-div" className="well">
+      <div id="car-form-div" className="container">
         
         <form name="carForm" onSubmit={this.handleSubmit} className="form-inline" id="car-form">
           <input
@@ -42,8 +42,8 @@ export default class CarForm extends React.Component {
           className="form-control mb-2 mr-sm-2 mb-sm-0"
             type="text"
             name="brand"
-            placeholder={this.props.editMode ? this.props.carToEdit.brand : "Fiat"}
-            defaultValue={this.props.editMode ? this.props.carToEdit.brand : "Fiat"}
+            placeholder={this.props.editMode ? this.props.carToEdit.brand : "NZT"}
+            defaultValue={this.props.editMode ? this.props.carToEdit.brand : "NZT"}
             onChange={this.handleChange}
           />
           <input
@@ -51,8 +51,8 @@ export default class CarForm extends React.Component {
           className="form-control mb-2 mr-sm-2 mb-sm-0"
             type="text"
             name="model"
-            placeholder={this.props.editMode ? this.props.carToEdit.model : "Uno"}
-            defaultValue={this.props.editMode ? this.props.carToEdit.model : "Uno"}
+            placeholder={this.props.editMode ? this.props.carToEdit.model : "48"}
+            defaultValue={this.props.editMode ? this.props.carToEdit.model : "48"}
             onChange={this.handleChange}
           />
           <input

@@ -3,16 +3,16 @@ import React from "react";
 const SingleCar = props => {
   console.log(props);
   return (
-    <li className='single-car-list-item'>
-      <button id='single-car-data' onClick={() => props.enterEditMode(props.car)}>
-        <div>{props.car.id}</div>
-        <div>{props.car.brand}</div>
-        <div>{props.car.model}</div>
-        <div>{props.car.color}</div>
-        <div>{props.car.gears}</div>
-      </button>
-      <div className='remove-car-button-div'>
-        <button onClick={() => props.removeCar(props.car)}>X</button>
+    <li className='single-car-list-item row align-items-center'>
+      <ul id='single-car-data' className="row align-items-center col-md-11 list-unstyled list-inline" onClick={() => props.enterEditMode(props.car)}>
+        <li className="col-md-1 list-inline-item">{props.car.id}</li>
+        <li className="col-md-3 list-inline-item">{props.car.brand}</li>
+        <li className="col-md-3 list-inline-item">{props.car.model}</li>
+        <li className="col-md-3 list-inline-item">{props.car.color}</li>
+        <li className="col-md-1 list-inline-item">{props.car.gears}</li>
+      </ul>
+      <div className='remove-car-button-div col-md-1 list-inline-item'>
+        <button onClick={() => props.removeCar(props.car)}>DELETE</button>
       </div>
     </li>
   );
