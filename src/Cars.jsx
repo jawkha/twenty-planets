@@ -67,7 +67,7 @@ export default class Cars extends React.Component {
     car.id = this.state.carToEdit.id;
     axios.put(`/api/cars/${car.id}`, car).then(res => {
       const cars = res.data.records;
-      this.setState({ cars: cars });
+      this.setState({ cars: cars, carToEdit: null });
     });
     console.log("car edited...");
     this.toggleEditMode();

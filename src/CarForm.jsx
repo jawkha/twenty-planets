@@ -4,25 +4,43 @@ export default class CarForm extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      brand: "Porsche",
+      model: "Panamera",
+      color: "White",
+      gears: 5
+    };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.editMode) {
+      this.setState({
+        brand: nextProps.carToEdit.brand,
+        model: nextProps.carToEdit.model,
+        color: nextProps.carToEdit.color,
+        gears: nextProps.carToEdit.gears
+      });
+    }
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-    var form = document.forms.carForm;
-    var car = {
-      brand: form.brand.value,
-      model: form.model.value,
-      color: form.color.value,
-      gears: form.gears.value,
-    };
-
     this.props.editMode
-      ? this.props.editCar(car)
-      : this.props.createCar(car);
+      ? this.props.editCar({
+          brand: this.state.brand,
+          model: this.state.model,
+          color: this.state.color,
+          gears: this.state.gears
+        })
+      : this.props.createCar({
+          brand: this.state.brand,
+          model: this.state.model,
+          color: this.state.color,
+          gears: this.state.gears
+        });
   }
 
   handleChange(e) {
@@ -34,42 +52,46 @@ export default class CarForm extends React.Component {
   render() {
     return (
       <div id="car-form-div" className="container">
-        
-        <form name="carForm" onSubmit={this.handleSubmit} className="form-inline" id="car-form">
+        <form
+          name="carForm"
+          onSubmit={this.handleSubmit}
+          className="form-inline"
+          id="car-form"
+        >
           <input
-          id="car-form-brand"
-          className="form-control mb-2 mr-sm-2 mb-sm-0"
+            id="car-form-brand"
+            className="form-control mb-2 mr-sm-2 mb-sm-0"
             type="text"
             name="brand"
-            placeholder={this.props.editMode ? this.props.carToEdit.brand : "NZT"}
-            defaultValue={this.props.editMode ? this.props.carToEdit.brand : "NZT"}
+            placeholder={this.state.brand}
+            value={this.state.brand}
             onChange={this.handleChange}
           />
           <input
-          id="car-form-model"
-          className="form-control mb-2 mr-sm-2 mb-sm-0"
+            id="car-form-model"
+            className="form-control mb-2 mr-sm-2 mb-sm-0"
             type="text"
             name="model"
-            placeholder={this.props.editMode ? this.props.carToEdit.model : "48"}
-            defaultValue={this.props.editMode ? this.props.carToEdit.model : "48"}
+            placeholder={this.state.model}
+            value={this.state.model}
             onChange={this.handleChange}
           />
           <input
-          id="car-form-color"
-          className="form-control mb-2 mr-sm-2 mb-sm-0"
+            id="car-form-color"
+            className="form-control mb-2 mr-sm-2 mb-sm-0"
             type="text"
             name="color"
-            placeholder={this.props.editMode ? this.props.carToEdit.color : "Red"}
-            defaultValue={this.props.editMode ? this.props.carToEdit.color : "Red"}
+            placeholder={this.state.color}
+            value={this.state.color}
             onChange={this.handleChange}
           />
           <input
-          id="car-form-gears"
-          className="form-control mb-2 mr-sm-2 mb-sm-0"
+            id="car-form-gears"
+            className="form-control mb-2 mr-sm-2 mb-sm-0"
             type="number"
             name="gears"
-            placeholder={this.props.editMode ? this.props.carToEdit.gears : 5}
-            defaultValue={this.props.editMode ? this.props.carToEdit.gears : 5}
+            placeholder={this.state.gears}
+            value={this.state.gears}
             min="3"
             max="8"
             onChange={this.handleChange}
