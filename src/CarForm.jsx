@@ -8,22 +8,21 @@ export default class CarForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+
   handleSubmit(e) {
     e.preventDefault();
     var form = document.forms.carForm;
+    var car = {
+      brand: form.brand.value,
+      model: form.model.value,
+      color: form.color.value,
+      gears: form.gears.value,
+    };
+
     this.props.editMode
-      ? this.props.editCar({
-        brand: form.brand.value,
-        model: form.model.value,
-        color: form.color.value,
-        gears: form.gears.value,
-      })
-      : this.props.createCar({
-        brand: form.brand.value,
-        model: form.model.value,
-        color: form.color.value,
-        gears: form.gears.value,
-      });
+      ? this.props.editCar(car)
+      : this.props.createCar(car);
   }
 
   handleChange(e) {
