@@ -12,7 +12,7 @@ const SingleCar = props => {
         <li className="col-md-1 list-inline-item">{props.car.gears}</li>
       </ul>
       <div className='remove-car-button-div col-md-1 list-inline-item'>
-        <button onClick={() => props.removeCar(props.car)}>DELETE</button>
+        <button className="btn btn-primary btn-sm" onClick={() => props.removeCar(props.car)}>DELETE</button>
       </div>
     </li>
   );
