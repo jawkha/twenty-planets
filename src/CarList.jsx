@@ -7,12 +7,12 @@ const CarList = (props) => {
         
             <ul>
                 <li id="car-list-header">
-                <span>ID</span>
-                <span>Brand</span>
-                <span>Model</span>
-                <span>Color</span>
-                <span>Gears</span>
-                <span></span>
+                <div>ID</div>
+                <div>Brand</div>
+                <div>Model</div>
+                <div>Color</div>
+                <div>Gears</div>
+                <div></div>
                 </li>
             
                 {props.cars.map((car, index) => (

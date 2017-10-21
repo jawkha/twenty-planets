@@ -1,0 +1,39 @@
+.jumbotron {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 20px;
+    background: rgb(20, 7, 44);
+    color: #fff;
+}
+
+#car-form {
+    margin: 20px;
+    padding: 20px;
+}
+
+#car-form-button {
+    background: rgb(20, 7, 44);
+    color: #fff;
+}
+
+#car-list-header {
+    background: rgb(20, 7, 44);
+    color: #fff;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.single-car-list-item {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+#single-car-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
